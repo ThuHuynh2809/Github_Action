@@ -7,17 +7,7 @@ type Params = {
 }
 
 export async function generateMetadata({ params }: Params) {
-  // Tạo tiêu đề dựa trên giá trị của slug
-  let title = '';
-  if (params.slug === 'Huỳnh Minh Thủ') {
-    title = 'Tiêu đề cho Huỳnh Minh Thủ';
-  } else if (params.slug === '123') {
-    title = 'Tiêu đề cho 123';
-  } else {
-    title = `Tiêu đề mặc định cho ${params.slug}`;
-  }
-
-  return { title };
+  return { title: `Post: ${params.slug}` }
 }
 
 const Page: React.FC<Params> = ({ params }) => {
@@ -36,8 +26,8 @@ export default Page;
 export async function generateStaticParams() {
   // Thực hiện logic để tạo ra các tham số tĩnh
   return [
-    { params: { slug: 'Huỳnh Minh Thủ' } },
-    { params: { slug: '123' } },
+    { params: { slug: 'example-slug-1' } },
+    { params: { slug: 'example-slug-2' } },
     // Thêm các tham số khác nếu cần
   ];
 }
