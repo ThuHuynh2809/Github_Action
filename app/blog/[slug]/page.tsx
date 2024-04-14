@@ -6,7 +6,7 @@ type Params = {
   }
 }
 
-export async function generateStaticParams({ params }: Params) {
+export async function generateMetadata({ params }: Params) {
   return { title: `Post: ${params.slug}` }
 }
 
@@ -23,11 +23,11 @@ const Page: React.FC<Params> = ({ params }) => {
 export default Page;
 
 // Thêm hàm generateStaticParams() vào cuối file
-// export async function generateStaticParams() {
-//   // Thực hiện logic để tạo ra các tham số tĩnh
-//   return [
-//     { params: { slug: 'example-slug-1' } },
-//     { params: { slug: 'example-slug-2' } },
-//     // Thêm các tham số khác nếu cần
-//   ];
-// }
+export async function generateStaticParams() {
+  // Thực hiện logic để tạo ra các tham số tĩnh
+  return [
+    { params: { slug: 'Huỳnh Minh Thủ' } },
+    { params: { slug: '123' } },
+    // Thêm các tham số khác nếu cần
+  ];
+}
