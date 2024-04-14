@@ -26,8 +26,8 @@ export default Page;
 export async function generateStaticParams() {
   // Thực hiện logic để tạo ra các tham số tĩnh
   return [
-    { params: { slug: 'example-slug-1' } },
-    { params: { slug: 'example-slug-2' } },
+    { params: { slug: 'Huỳnh Minh Thủ' } },
+    { params: { slug: '123' } },
     // Thêm các tham số khác nếu cần
   ];
 }
