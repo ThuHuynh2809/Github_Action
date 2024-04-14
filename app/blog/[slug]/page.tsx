@@ -7,7 +7,17 @@ type Params = {
 }
 
 export async function generateMetadata({ params }: Params) {
-  return { title: `Post: ${params.slug}` }
+  // Tạo tiêu đề dựa trên giá trị của slug
+  let title = '';
+  if (params.slug === 'Huỳnh Minh Thủ') {
+    title = 'Tiêu đề cho Huỳnh Minh Thủ';
+  } else if (params.slug === '123') {
+    title = 'Tiêu đề cho 123';
+  } else {
+    title = `Tiêu đề mặc định cho ${params.slug}`;
+  }
+
+  return { title };
 }
 
 const Page: React.FC<Params> = ({ params }) => {
