@@ -6,12 +6,10 @@ type Params = {
   }
 }
 
-// Hàm generateMetadata nhận đối số là một đối tượng Params và trả về một promise chứa một đối tượng metadata
-export async function generateMetadata({ params }: Params): Promise<{ title: string }> {
-  return { title: `Post: ${params.slug}` };
+export async function generateStaticParams({ params }: Params) {
+  return { title: `Post: ${params.slug}` }
 }
 
-// Component Page nhận một đối tượng Params và hiển thị nội dung dựa trên slug trong params
 const Page: React.FC<Params> = ({ params }) => {
   return (
     <div>
@@ -23,3 +21,13 @@ const Page: React.FC<Params> = ({ params }) => {
 }
 
 export default Page;
+
+// Thêm hàm generateStaticParams() vào cuối file
+// export async function generateStaticParams() {
+//   // Thực hiện logic để tạo ra các tham số tĩnh
+//   return [
+//     { params: { slug: 'example-slug-1' } },
+//     { params: { slug: 'example-slug-2' } },
+//     // Thêm các tham số khác nếu cần
+//   ];
+// }
